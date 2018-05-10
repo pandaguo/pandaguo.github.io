@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+
+        <title>网络安全基础-网卡信息解读</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="http://linuxsecurity.cn/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="http://linuxsecurity.cn/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://linuxsecurity.cn/theme/pygment.css" />
+
+        <script src="http://linuxsecurity.cn/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="http://linuxsecurity.cn/">Panda.Guo 的竹林 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="http://linuxsecurity.cn/">Home</a></li>
+
+                  <li><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li>
+                  <li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li>
+                  <li><a href="http://linuxsecurity.cn/category/test.html">test</a></li>
+
+                <li><a href="/pages/about-zh.html">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="http://linuxsecurity.cn/drafts/ip-info-zh.html" rel="bookmark"
+                   title="Permalink to 网络安全基础-网卡信息解读">网络安全基础-网卡信息解读</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2018-05-02T14:25:49+08:00">
+                2018-05-02   14:25
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="http://linuxsecurity.cn/author/panda-guo.html"> Panda Guo</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <!-- Status: published -->
+
+<h2>概述</h2>
+<p>网卡，也叫网络适配器，是连接计算机和网络传输介质的接口。 通过一些基本的linux命令，获取网卡信息，也是我们网络安全的最基本的技术。</p>
+<p>环境：</p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-02 <span class="m">10</span>:56:43 $ lsb_release -ir
+Distributor ID: Debian
+Release:    <span class="m">9</span>.4
+Panda.Guo@2018-05-02 <span class="m">10</span>:56:46 $ uname  -r
+<span class="m">4</span>.9.0-6-amd64
+</pre></div>
+
+
+<p><sup id="fnref-1"><a class="footnote-ref" href="#fn-1">1</a></sup></p>
+<p>以下操作，基于debian9.4、内核4.9进行操作</p>
+<hr>
+<ul>
+<li>为何eth0、eth1、ethX不见了</li>
+</ul>
+<p>启动debian9后，</p>
+<ul>
+<li>为什么是 enp8s0 </li>
+<li>enp8s0 信息解读</li>
+</ul>
+<hr>
+<p>ip 命令可以告诉你很多网络连接配置和状态的信息，但是所有这些词和数字意味着什么？ 让我们深入了解一下，看看所有显示的值都试图告诉你什么。</p>
+<p>当您使用 ip a（或 ip addr）命令获取系统上所有网络接口的信息时，您将看到如下所示的内容：</p>
+<div class="highlight"><pre><span></span>$ ip a
+<span class="m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="m">1000</span>
+ link/loopback <span class="m">00</span>:00:00:00:00:00 brd <span class="m">00</span>:00:00:00:00:00
+ inet <span class="m">127</span>.0.0.1/8 scope host lo
+ valid_lft forever preferred_lft forever
+ inet6 ::1/128 scope host
+ valid_lft forever preferred_lft forever
+<span class="m">2</span>: enp0s25: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="m">1000</span>
+ link/ether <span class="m">00</span>:1e:4f:c8:43:fc brd ff:ff:ff:ff:ff:ff
+ inet <span class="m">192</span>.168.0.24/24 brd <span class="m">192</span>.168.0.255 scope global dynamic enp0s25
+ valid_lft 57295sec preferred_lft 57295sec
+ inet6 fe80::2c8e:1de0:a862:14fd/64 scope link
+ valid_lft forever preferred_lft forever
+</pre></div>
+
+
+<p>这个系统上的两个接口 - 环回（lo）和网络（enp0s25）——显示了很多统计数据。 lo 接口显然是环回地址。 我们可以在列表中看到环回 IPv4 地址（127.0.0.1）和环回 IPv6（::1）。 而普通的网络接口更有趣。
+为什么是 enp0s25 而不是 eth0</p>
+<p>如果你想知道为什么它在这个系统上被称为 enp0s25，而不是可能更熟悉的 eth0，那我们可以稍微解释一下。</p>
+<p>新的命名方案被称为“可预测的网络接口”。 它已经在基于systemd 的 Linux 系统上使用了一段时间了。 接口名称取决于硬件的物理位置。 en 仅仅就是 “ethernet” 的意思，就像 “eth” 用于对应 eth0，一样。 p 是以太网卡的总线编号，s 是插槽编号。 所以 enp0s25 告诉我们很多我们正在使用的硬件的信息。</p>
+<p><BROADCAST,MULTICAST,UP,LOWER_UP> 这个配置串告诉我们：</p>
+<div class="highlight"><pre><span></span>BROADCAST   该接口支持广播
+MULTICAST   该接口支持多播
+UP          网络接口已启用
+LOWER_UP    网络电缆已插入，设备已连接至网络
+</pre></div>
+
+
+<p>列出的其他值也告诉了我们很多关于接口的知识，但我们需要知道 brd 和 qlen 这些词代表什么意思。 所以，这里显示的是上面展示的 ip 信息的其余部分的翻译。</p>
+<div class="highlight"><pre><span></span>mtu 1500                                    最大传输单位（数据包大小）为1,500字节
+qdisc pfifo_fast                            用于数据包排队
+state UP                                    网络接口已启用
+group default                               接口组
+qlen 1000                                   传输队列长度
+link/ether 00:1e:4f:c8:43:fc                接口的 MAC（硬件）地址
+brd ff:ff:ff:ff:ff:ff                       广播地址
+inet 192.168.0.24/24                        IPv4 地址
+brd 192.168.0.255                           广播地址
+scope global                                全局有效
+dynamic enp0s25                             地址是动态分配的
+valid_lft 80866sec                          IPv4 地址的有效使用期限
+preferred_lft 80866sec                      IPv4 地址的首选生存期
+inet6 fe80::2c8e:1de0:a862:14fd/64          IPv6 地址
+scope link                                  仅在此设备上有效
+valid_lft forever                           IPv6 地址的有效使用期限
+preferred_lft forever                       IPv6 地址的首选生存期
+</pre></div>
+
+
+<p>您可能已经注意到，ifconfig 命令提供的一些信息未包含在 ip a 命令的输出中 —— 例如传输数据包的统计信息。 如果您想查看发送和接收的数据包数量以及冲突数量的列表，可以使用以下 ip 命令：</p>
+<div class="highlight"><pre><span></span>$ ip -s link show enp0s25
+<span class="m">2</span>: enp0s25: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state UP mode DEFAULT group default qlen <span class="m">1000</span>
+ link/ether <span class="m">00</span>:1e:4f:c8:43:fc brd ff:ff:ff:ff:ff:ff
+ RX: bytes packets errors dropped overrun mcast
+ <span class="m">224258568</span> <span class="m">418718</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">84376</span>
+ TX: bytes packets errors dropped carrier collsns
+ <span class="m">6131373</span> <span class="m">78152</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+</pre></div>
+
+
+<p>另一个 ip 命令提供有关系统路由表的信息。</p>
+<div class="highlight"><pre><span></span>$ ip route show
+default via <span class="m">192</span>.168.0.1 dev enp0s25 proto static metric <span class="m">100</span>
+<span class="m">169</span>.254.0.0/16 dev enp0s25 scope link metric <span class="m">1000</span>
+<span class="m">192</span>.168.0.0/24 dev enp0s25 proto kernel scope link src <span class="m">192</span>.168.0.24 metric <span class="m">100</span>
+</pre></div>
+
+
+<hr>
+<p>参考链接：<a href="https://www.networkworld.com/article/3262045/linux/checking-your-network-connections-on-linux.html">How to check your network connections on Linux</a></p>
+<ul>
+<li>https://linux.cn/article-9476-1.html</li>
+<li>https://linux.cn/article-9099-1-rel.html</li>
+</ul>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn-1">
+<p>sdfhaskfkasdfasldfasldfkaskdfj&#160;<a class="footnote-backref" href="#fnref-1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<!-- <div class="textwidget"> -->
+<p align="center">
+<img src="./images/qrcode_for_gh_29ee8d61b0dc_860.jpg" height="200" weight="200" alt="微信公众号" title="微信公众号">
+</p>
+<!-- </div> -->
+
+
+
+  
+<!-- <h5>Pages</h5> -->
+
+<!--  <ul> -->
+<!--    -->
+<!--       <li><a href="/pages/about-zh.html">About</a></li> -->
+<!--    -->
+<!--    -->
+<!--      -->
+<!--        -->
+<!--         <li><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li> -->
+<!--        -->
+<!--         <li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li> -->
+<!--        -->
+<!--         <li><a href="http://linuxsecurity.cn/category/test.html">test</a></li> -->
+<!--        -->
+<!--      -->
+<!--    -->
+<!--   </ul> -->
+
+<!--  -->
+<!-- <h4>Categories</h4> -->
+<!-- <ul class="blank"> -->
+<!-- 	 -->
+<!-- 		<li><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li> -->
+<!-- 	 -->
+<!-- 		<li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li> -->
+<!-- 	 -->
+<!-- 		<li><a href="http://linuxsecurity.cn/category/test.html">test</a></li> -->
+<!-- 	 -->
+<!-- </ul> -->
+<!--  -->
+
+<h5>文章归档</h5>
+  <ul>
+			<li><a href="/posts/2018/05/index.html">五月 2018 (1)</a></li>
+			<li><a href="/posts/2018/04/index.html">四月 2018 (2)</a></li>
+</ul> 
+
+
+<nav class="widget">
+  <h5>友情链接</h5>
+  <ul>
+    <li><a href="http://getpelican.com/">Pelican</a></li>
+    <li><a href="http://python.org/">Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+    <li><a href="https://www.jianshu.com/u/47a0cb23728b">简书-吃瓜群众岱岱</a></li>
+    <li><a href="https://coolshell.cn/">酷壳</a></li>
+  </ul>
+</nav>
+
+
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/pandaguo" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="http://linuxsecurity.cn/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="http://linuxsecurity.cn/theme/js/libs/gumby.min.js"></script>
+  <script src="http://linuxsecurity.cn/theme/js/plugins.js"></script>
+</body>
+</html>

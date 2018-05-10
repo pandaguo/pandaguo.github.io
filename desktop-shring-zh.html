@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+
+        <title>Debian下的桌面共享</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="http://linuxsecurity.cn/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="http://linuxsecurity.cn/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://linuxsecurity.cn/theme/pygment.css" />
+
+        <script src="http://linuxsecurity.cn/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="http://linuxsecurity.cn/">Panda.Guo 的竹林 <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="http://linuxsecurity.cn/">Home</a></li>
+
+                  <li class="active"><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li>
+                  <li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li>
+                  <li><a href="http://linuxsecurity.cn/category/test.html">test</a></li>
+
+                <li><a href="/pages/about-zh.html">About</a></li>
+
+              </ul>
+            </div>
+
+<section id="content" class="body">
+
+   <div class="row">
+        <div class="eleven columns">
+
+
+            <header>
+              <h2 class="entry-title">
+                <a href="http://linuxsecurity.cn/desktop-shring-zh.html" rel="bookmark"
+                   title="Permalink to Debian下的桌面共享">Debian下的桌面共享</a></h2>
+           
+            </header>
+            <footer class="post-info">
+              <abbr class="published" title="2018-05-07T17:58:40+08:00">
+                2018-05-07   17:58
+              </abbr>
+              <address class="vcard author">By 
+                <a class="url fn" href="http://linuxsecurity.cn/author/panda-guo.html"> Panda Guo</a>
+              </address>
+            </footer><!-- /.post-info -->
+            <div class="entry-content">
+              <!-- Status: draft  -->
+
+<!-- Status: published -->
+
+<h2>概述</h2>
+<p>桌面共享是指通过图形终端仿真器在计算机桌面上实现远程访问和远程协作的技术。桌面共享允许两个或多个连接到网络的计算机用户在不同位置对同一个文件进行操作。</p>
+<p>本篇记录在debian启用桌面共享，在Win10的环境下以vncviewer远程访问Debian主机桌面的情景。</p>
+<p>环境：</p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-07 <span class="m">18</span>:15:36 $ lsb_release -ir<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> uname -a
+Distributor ID: Debian
+Release:    <span class="m">9</span>.4
+
+Linux PandaGuo <span class="m">4</span>.9.0-6-amd64 <span class="c1">#1 SMP Debian 4.9.88-1 (2018-04-29) x86_64 GNU/Linux</span>
+</pre></div>
+
+
+<p>以下操作，基于debian9.4、内核4.9进行操作, 需要补充的是，我选用的是mate-desktop, 有些图形界面的操作，和gnome、xface等桌面环境有所不同。</p>
+<hr>
+<p>主要内容：</p>
+<ul>
+<li>Debian环境下的桌面共享</li>
+<li>windows访问Debian共享桌面</li>
+<li>Debian访问windows共享桌面</li>
+</ul>
+<h2>Debian环境下的桌面共享</h2>
+<p>先定义两个术语：</p>
+<ul>
+<li>Host端： 启用桌面共享，</li>
+<li>Client端： 访问远程共享桌面</li>
+</ul>
+<h3>Host端环境搭建</h3>
+<p><strong> 安装vino(Gnome上的VNC服务端) </strong></p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-07 <span class="m">10</span>:19:58 $ sudo apt-get install vino
+</pre></div>
+
+
+<p><strong> 启动服务 </strong></p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">11</span>:31:46 $ /usr/lib/vino/vino-server --sm-disable
+</pre></div>
+
+
+<p><strong> 采用 dconf-editor 进行服务配置 </strong></p>
+<p>启动 dconf-editor 命令，</p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">11</span>:42:48 $ dconf-editor
+</pre></div>
+
+
+<p>选择 org -&gt; gnome -&gt; desktop -&gt; remote-access:</p>
+<p>修改require-encryption 为 false, "如果为 true，要求访问桌面的远程用户支持加密。我们无需使用支持加密的客户端，</p>
+<ul>
+<li>alternative-port: 5900;  默认端口为5900</li>
+<li>authentication-methods: none ; 验证方法，如果为none表示允许任意用户连接， 如果为vnc代表在连接前需要输入口令。</li>
+<li>require-encryption: false;  取消加密要求， 不要要求Client端支持加密。</li>
+<li>icon-visibility: always;  总是显示图标， 默认为client表示仅在有人连接时显示图标。</li>
+<li>view-only： true ;  仅允许远程用户查看共享桌面，不能控制。</li>
+</ul>
+<p><strong> 采用 gnome-control-center 配置服务器 </strong></p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">14</span>:11:13 $ gnome-control-center sharing
+</pre></div>
+
+
+<p>配置选项如下图所示：</p>
+<p><img alt="共享桌面配置" src="./images/desktop-sharing-setting.png"></p>
+<ul>
+<li>取消 “允许连接控制屏幕” </li>
+<li>点选 “需要口令” ， </li>
+</ul>
+<h3>Client配置</h3>
+<p><strong> 安装 vncviewer </strong></p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">14</span>:23:21 $ sudo apt-get install tigervnc-viewer
+</pre></div>
+
+
+<p><strong> 访问共享桌面 </strong></p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">14</span>:24:54 $ vncviewer <span class="m">172</span>.16.28.98
+</pre></div>
+
+
+<p>如果在Host勾选了“需要口令”，则需要输入口令。</p>
+<h2>Windows 访问debian共享桌面 1</h2>
+<p>在Windows下访问debian共享桌面，比较简单，Host配置参考上节配置，无需做任何修改。在win下安装 realvnc viewer即可。</p>
+<ul>
+<li>下载链接：<a href="https://www.realvnc.com/en/connect/download/viewer/windows/">Download VNC Viewer for Windows</a></li>
+</ul>
+<p>选择standalone版本（免安装版本）。</p>
+<ul>
+<li>双击运行后，输入Host端IP地址连接即可。 </li>
+</ul>
+<h2>Windows 访问debian 共享桌面2</h2>
+<p>选择xrdp进行远程桌面共享，  可选配置项更多一些。 比如清晰度等等。</p>
+<h3>Host (debian) 配置</h3>
+<p><strong> 安装xrdp 、vino </strong></p>
+<p>xrdp， 远程桌面协议服务器，</p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">15</span>:33:18 $ sudo apt-get install xrdp vino
+</pre></div>
+
+
+<p><strong> 服务启动 </strong></p>
+<div class="highlight"><pre><span></span>Panda.Guo@2018-05-08 <span class="m">15</span>:37:26 $ sudo systemctl start xrdp.service
+Panda.Guo@2018-05-08 <span class="m">15</span>:36:39 $ /usr/lib/vino/vino-server start
+</pre></div>
+
+
+<p><strong> 服务配置 </strong></p>
+<p>对vino-server 的配置，可参考第一个章节， 关于xrdp配置，可参考</p>
+<ul>
+<li>man xrdp</li>
+<li>man xrdp.ini</li>
+<li>man sesman.ini</li>
+</ul>
+<p>需要注意的是，修改完成服务，需要重启服务。</p>
+<blockquote>
+<p>xrdp支持xfce4和mate桌面,不支持gnome和ubuntu桌面</p>
+</blockquote>
+<p>以下配置选项，有待进一步研究：</p>
+<ul>
+<li>/etc/xrdp/xrdp.ini </li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">[globals]</span>
+<span class="na">bitmap_cache</span><span class="o">=</span><span class="s">yes       #位图缓存</span>
+<span class="na">bitmap_compression</span><span class="o">=</span><span class="s">yes #位图压缩</span>
+<span class="na">port</span><span class="o">=</span><span class="s">3389              #监听端口</span>
+<span class="na">crypt_level</span><span class="o">=</span><span class="s">low        #加密程度（low为40位，high为128位，medium为双40位）</span>
+<span class="na">channel_code</span><span class="o">=</span><span class="s">1         #不知道是什么</span>
+<span class="na">max_bpp</span><span class="o">=</span><span class="s">24 XRDP最大连接数</span>
+<span class="k">[xrdp1]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">sesman-Xvnc XRDP的连接模式</span>
+<span class="na">lib</span><span class="o">=</span><span class="s">libvnc.so</span>
+<span class="na">username</span><span class="o">=</span><span class="s">ask</span>
+<span class="na">password</span><span class="o">=</span><span class="s">ask</span>
+<span class="na">ip</span><span class="o">=</span><span class="s">127.0.0.1</span>
+<span class="na">port</span><span class="o">=</span><span class="s">-1</span>
+</pre></div>
+
+
+<ul>
+<li>/etc/xrdp/sesman.ini</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">[Globals]</span>
+<span class="na">ListenAddress</span><span class="o">=</span><span class="s">127.0.0.1      #监听ip地址(默认即可)</span>
+<span class="na">ListenPort</span><span class="o">=</span><span class="s">3350              #监听端口(默认即可)</span>
+<span class="na">EnableUserWindowManager</span><span class="o">=</span><span class="s">1    #1为开启,可让用户自定义自己的启动脚本</span>
+<span class="na">UserWindowManager</span><span class="o">=</span><span class="s">startwm.sh</span>
+<span class="na">DefaultWindowManager</span><span class="o">=</span><span class="s">startwm.sh</span>
+
+<span class="k">[Security]</span>
+<span class="na">AllowRootLogin</span><span class="o">=</span><span class="s">1              #允许root登陆</span>
+<span class="na">MaxLoginRetry</span><span class="o">=</span><span class="s">4               #最大重试次数</span>
+<span class="na">TerminalServerUsers</span><span class="o">=</span><span class="s">tSUSErs   #允许连接的用户组(如果不存在则默认全部用户允许连接)</span>
+<span class="na">TerminalServerAdmins</span><span class="o">=</span><span class="s">tsadmins #允许连接的超级用户(如果不存在则默认全部用户允许连接)</span>
+
+<span class="k">[Sessions]</span>
+<span class="na">MaxSessions</span><span class="o">=</span><span class="s">10           #最大会话数</span>
+
+<span class="na">KillDisconnected</span><span class="o">=</span><span class="s">0       #是否立即关闭断开的连接(如果为1,则断开连接后会自动注销)</span>
+<span class="na">IdleTimeLimit</span><span class="o">=</span><span class="s">0          #空闲会话时间限制(0为没有限制)</span>
+<span class="na">DisconnectedTimeLimit</span><span class="o">=</span><span class="s">0  #断开连接的存活时间(0为没有限制)</span>
+
+<span class="k">[Logging]</span>
+<span class="na">LogFile</span><span class="o">=</span><span class="s">./sesman.log     #登陆日志文件</span>
+<span class="na">LogLevel</span><span class="o">=</span><span class="s">DEBUG           #登陆日志记录等级(级别分别为,core,error,warn,info,debug)</span>
+<span class="na">EnableSyslog</span><span class="o">=</span><span class="s">0           #是否开启日志</span>
+<span class="na">SyslogLevel</span><span class="o">=</span><span class="s">DEBUG        #系统日志记录等级</span>
+</pre></div>
+
+
+<!-- 参考链接： https://blog.csdn.net/jiandanjinxin/article/details/51897368 -->
+
+<h3>Client （Win10）访问共享桌面</h3>
+<p>选择win10自带远程桌面， 命令行操作如下</p>
+<ul>
+<li>cmd</li>
+<li>mstsc</li>
+<li>选择vnc-any</li>
+<li>输入 Host IP地址</li>
+<li>端口 5900</li>
+<li>桌面共享设定的口令</li>
+</ul>
+<p>本例中， 口令为空即可</p>
+<hr>
+            </div><!-- /.entry-content -->
+
+
+        </div><!-- /.eleven.columns -->
+
+<div class="three columns">
+
+<!-- <div class="textwidget"> -->
+<p align="center">
+<img src="./images/qrcode_for_gh_29ee8d61b0dc_860.jpg" height="200" weight="200" alt="微信公众号" title="微信公众号">
+</p>
+<!-- </div> -->
+
+
+
+  
+<!-- <h5>Pages</h5> -->
+
+<!--  <ul> -->
+<!--    -->
+<!--       <li><a href="/pages/about-zh.html">About</a></li> -->
+<!--    -->
+<!--    -->
+<!--      -->
+<!--        -->
+<!--         <li class="active"><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li> -->
+<!--        -->
+<!--         <li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li> -->
+<!--        -->
+<!--         <li><a href="http://linuxsecurity.cn/category/test.html">test</a></li> -->
+<!--        -->
+<!--      -->
+<!--    -->
+<!--   </ul> -->
+
+<!--  -->
+<!-- <h4>Categories</h4> -->
+<!-- <ul class="blank"> -->
+<!-- 	 -->
+<!-- 		<li><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li> -->
+<!-- 	 -->
+<!-- 		<li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li> -->
+<!-- 	 -->
+<!-- 		<li><a href="http://linuxsecurity.cn/category/test.html">test</a></li> -->
+<!-- 	 -->
+<!-- </ul> -->
+<!--  -->
+
+<h5>文章归档</h5>
+  <ul>
+			<li><a href="/posts/2018/05/index.html">五月 2018 (1)</a></li>
+			<li><a href="/posts/2018/04/index.html">四月 2018 (2)</a></li>
+</ul> 
+
+
+<nav class="widget">
+  <h5>友情链接</h5>
+  <ul>
+    <li><a href="http://getpelican.com/">Pelican</a></li>
+    <li><a href="http://python.org/">Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+    <li><a href="https://www.jianshu.com/u/47a0cb23728b">简书-吃瓜群众岱岱</a></li>
+    <li><a href="https://coolshell.cn/">酷壳</a></li>
+  </ul>
+</nav>
+
+
+
+</div> </div><!-- /.row -->
+
+
+</section>
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+                <li><div class="btn primary"><a href="https://github.com/pandaguo" target="_blank">Github</a></div></li>
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="http://linuxsecurity.cn/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="http://linuxsecurity.cn/theme/js/libs/gumby.min.js"></script>
+  <script src="http://linuxsecurity.cn/theme/js/plugins.js"></script>
+</body>
+</html>
