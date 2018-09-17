@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Panda.Guo 的竹林</title><link href="http://linuxsecurity.cn/" rel="alternate"></link><link href="http://linuxsecurity.cn/feeds/all.atom.xml" rel="self"></link><id>http://linuxsecurity.cn/</id><updated>2018-09-17T10:31:24+08:00</updated><entry><title>我的LinuxSecurity书单</title><link href="http://linuxsecurity.cn/book-list-zh.html" rel="alternate"></link><published>2018-09-17T10:31:13+08:00</published><updated>2018-09-17T10:31:24+08:00</updated><author><name>Panda Guo</name></author><id>tag:linuxsecurity.cn,2018-09-17:/book-list-zh.html</id><summary type="html">&lt;p&gt;从事软件开发工作近二十年， 以下是我读过的，并且感觉可以推荐给大家的读书清单。&lt;/p&gt;</summary><content type="html">&lt;!-- Status: draft  --&gt;
+
+&lt;!-- Status: published --&gt;
+
+&lt;p&gt;从事开发工作20年了， 在过往软件开发过程中， 陪伴最多的是书，有些书值得好好读读。 最近经常被兄弟们问道有些哪些书值得推荐。因此整理了一个读过的书单，且感觉读完还有收获的推荐给大家。&lt;/p&gt;
+&lt;p&gt;另， 在整理书单过程中， 有些书有新的版本发布，我就列出当前的最新版本。&lt;/p&gt;
+&lt;p&gt;好东西当然要拿出来分享^_^!&lt;/p&gt;
+&lt;h2&gt;计算机及系统原理&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《深入理解计算机系统（原书第3版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 兰德尔 E.布莱恩特（Randal E.·Bryant） 著，龚奕利，贺莲 译&lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Linux内核设计与实现（原书第3版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Robert Love 著，陈莉君，康华 译 &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这本书，我读了两版， 第二版，第三版我都买了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《O'Reilly：深入理解LINUX内核（第3版）》&lt;ul&gt;
+&lt;li&gt;[美] 博韦，西斯特 著，陈莉君，张琼声，张宏伟 译 &lt;/li&gt;
+&lt;li&gt;出版社： 中国电力出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;兄弟我2007年由津入京工作， 在回天津图书馆退卡，由押金换购的书，就是这本。。 &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《O'Reilly：LINUX设备驱动程序（第3版） 》&lt;ul&gt;
+&lt;li&gt;[美] 科波特（Corbet J.） 著，魏永明，耿岳，钟书毅 译&lt;/li&gt;
+&lt;li&gt;出版社： 中国电力出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;搞linux下驱动，人手必备。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《鸟哥的Linux私房菜 （基础学习篇 第三版） 》&lt;ul&gt;
+&lt;li&gt;鸟哥 著，王世江 编 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;编程开发&lt;/h2&gt;
+&lt;h3&gt;系统平台&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;《UNIX环境高级编程（第3版） [Advanced Programming in the UNIX Environment, Third Edition]》&lt;ul&gt;
+&lt;li&gt;[美] W. Richard Stevens，[美] Stephen A. Rago 著，戚正伟，张亚英，尤晋元 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Unix下的编程圣经， 其实关于“W.Richard Stevens”的书，不读过，怎么敢说是混unix（linux）圈的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《Linux程序设计（第4版） [Beginning Linux Programming 4th Edition]》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[英] 马修（Matthew N.） 著，陈健，宋健建 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《UNIX网络编程 卷1 套接字联网API（第3版）》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] W.Richard Stevens，[美] Bill Fenner，[美] Andrew M. Rudoff 著&lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;UNIX和网络专家W. Richard Stevens的传世之作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《UNIX网络编程 卷2 进程间通信（第2版） 》 &lt;ul&gt;
+&lt;li&gt;[美] W.理查德·史蒂文斯（W.Richard Stevens） 著&lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;UNIX和网络专家W. Richard Stevens的传世之作&lt;/p&gt;
+&lt;h3&gt;编程语言&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《C程序设计语言》&lt;ul&gt;
+&lt;li&gt;美国）Brian W. Kernighan，Dennis M. Ritchie &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由C语言的设计者Brian W.Kernighan和Dennis M.Ritchie编写的一部介绍标准C语言及其程序设计方法的权威性经典著作， 有这句话就够了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《C语言程序设计：现代方法（第2版）》&lt;ul&gt;
+&lt;li&gt;[美] 金 著，吕秀锋，黄倩 译&lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这本书作为《C程序设计语言》的补充， 介绍内容更为详细。&lt;/p&gt;
+&lt;p&gt;一下几本， 可作为上述两本书的补充。。。。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《C和指针 POINTERS ON C 》&lt;ul&gt;
+&lt;li&gt;[美] 里科（Kenneth·Reek） 著，徐波 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;C 之所以难， 在于指针； C之所以值得推荐， 在于C指针。 看完这本，对于指针的问题，一切迎刃而解。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《C陷阱与缺陷 [C Traps and Pitfalls]》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Andrew Koenig 著，高巍 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《C专家编程Expert C Programming Deep C Secrets 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 林登（LinDen P.V.D） 著，徐波 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Linux C编程一站式学习》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;北京亚嵌教育研究中心组,宋劲彬著&lt;/li&gt;
+&lt;li&gt;出版社：电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这本书，好像买不到了。 我当年在亚嵌时，使用的课程讲义。也是我在研究C上，花时间最多的一本书。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C++&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《C++编程思想》  原书第二版&lt;ul&gt;
+&lt;li&gt;[美] Bruce Eckel，Chuck Allison 著，刘宗田 等 译 &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我2002年春节期间， 在南开大学读过的，第一本C++的书，引为经典。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《C++ Primer中文版》 第5版&lt;ul&gt;
+&lt;li&gt;Stanley B. Lippman，Josée Lajoie，Barbara E. Moo 著，王刚，杨巨峰 译，叶劲峰，李云，刘未鹏 等 校 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我读的是侯捷老师译的C++ Primer版本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ASM&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《汇编语言程序设计|》 &lt;ul&gt;
+&lt;li&gt;美 Richard Blum 著，马朝晖 等 译 &lt;/li&gt;
+&lt;li&gt;出版社: 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是一本讲解 at&amp;amp;t格式的汇编语言，基于X86体系，适用于Unix &amp;amp; 类Unix 平台 &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shell&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《O'Reilly：Shell脚本学习指南》  [美] 罗宾，[美] 比博 著，O'Reilly Taiwan公司 译&lt;ul&gt;
+&lt;li&gt;O‘Reilly的书，只要和自己对口，都值得收藏。&lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《Python编程 从入门到实践 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 埃里克·马瑟斯（Eric Matthes） 著，袁国忠 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Python绝技：运用Python成为顶级黑客 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] TJ O'Connor（TJ 奥科罗） 著，崔孝晨，武晓音 译 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Python 黑帽子：黑客与渗透测试编程之道 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Justin Seitz（贾斯汀·塞茨） 著，孙松柏，李聪，润秋 译 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;算法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《算法导论（原书第3版）》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Thomas H.Cormen，[美] Charles E.Leiserson，[美] Ronald L.Rivest，[美] Clifford Stein 著，殷建平，徐云，王刚 等 译 &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《算法：C语言实现（第1-4部分）》 基础知识、数据结构、排序及搜索（原书第3版） [Algorithms in C, Parts 1-4: Fundamentals, Data Structures, Sorting, Searching,Third Edition]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 塞奇威克 著，霍红卫 译&lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;网络技术&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;《TCP/IP详解 卷1：协议（原书第2版）》&lt;ul&gt;
+&lt;li&gt;[美] 凯文R.福尔（Kevin R. Fall，W.Richard Stevens） 著，吴英，张玉，许昱玮 译，吴功宜 校 &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Stevens经典网络名著的整体重组和彻底更新， 值得一读&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《Wireshark数据包分析实战（第2版） 》&lt;ul&gt;
+&lt;li&gt;[美] Chris Sanders 著，诸葛建伟，陈霖，许伟林 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;搞网络的，不懂嗅探怎么行， 做为wireshark的入门书，值得一读。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《深入理解Linux网络技术内幕 》&lt;ul&gt;
+&lt;li&gt;[意] Benvenuti 著，夏安，闫江毓，黄景昌 译&lt;/li&gt;
+&lt;li&gt;出版社： 中国电力出版社 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;安全技术&lt;/h2&gt;
+&lt;h3&gt;安全防护&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《Linux防火墙（第4版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 史蒂夫·苏哈林（Steve Suehring） 著，王文烨 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《LINUX网络安全实践》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AaronW.Bayles 著&lt;/li&gt;
+&lt;li&gt;出版社： 科学出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Linux内核安全模块深入剖析 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;李志 著 &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;逆向工程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《逆向工程权威指南 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dennis，Yurichev，丹尼斯 著，Archer，安天安全研究与应急处理中心 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《IDA Pro权威指南（第2版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Chris Eagle 著，石华耀，段桂菊 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Web安全&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《黑客攻防技术宝典 Web实战篇 第2版 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[英] 斯图塔德（Stuttard D.） 著，石华耀，傅志红 译 &lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《白帽子讲Web安全（纪念版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;吴翰清 著 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《XSS跨站脚本攻击剖析与防御》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;邱永华 著&lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;软件 / 系统安全&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《Metasploit渗透测试魔鬼训练营》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;诸葛建伟，陈力波，田繁 等 著 &lt;/li&gt;
+&lt;li&gt;出版社： 机械工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Metasploit渗透测试指南（修订版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] David，Kennedy（戴维.肯尼） 等 著，诸葛建伟 等 译 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《网络攻防技术与实践》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;诸葛建伟 著 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《Kali Linux渗透测试的艺术 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[英] Lee Allen，[印尼] Tedi Heriyanto，[英] Shakeel Ali 著，Archer 译&lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《内核漏洞的利用与防范》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作者：（美国）Enrico Perla，Massimiliano Oldani&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《灰帽黑客·第4版：正义黑客的道德规范、渗透测试、攻击方法和漏洞分析技术》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Daniel Regalado，Shon Harris 等 著，李枫 译 &lt;/li&gt;
+&lt;li&gt;出版社： 清华大学出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《黑客大曝光：网络安全机密与解决方案（第7版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 麦克克鲁尔，[美] 斯坎布雷，[美] 克茨 著，赵军 等 译 &lt;/li&gt;
+&lt;li&gt;出版社： 清华大学出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;修炼内功&lt;/h2&gt;
+&lt;p&gt;算是杂项，不局限于技术。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《 Debug Hacks中文版——深入调试的技术和工具》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(日本）吉冈弘隆，大和一洋，大岩尚宏，安部东洋，吉田俊辅&lt;/li&gt;
+&lt;li&gt;出版社：电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《程序员的英语》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作者：（韩国）朴栽浒，李海永&lt;/li&gt;
+&lt;li&gt;出版社： 人民邮电出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;没事，读读也好&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《程序员修炼之道：从小工到专家》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] 亨特（Andrew Hunt），[美] 托马斯（Daid Thomas） 著，马维达 译 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《代码大全（第2版） 》&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[美] Steve，[美] McConnell 著，金戈，汤凌，陈硕，张菲 译 &lt;/li&gt;
+&lt;li&gt;出版社： 电子工业出版社&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;床头必备，没事读几页^_^&lt;/p&gt;</content><category term="Security"></category></entry><entry><title>Debian下的桌面共享</title><link href="http://linuxsecurity.cn/desktop-shring-zh.html" rel="alternate"></link><published>2018-05-07T17:58:40+08:00</published><updated>2018-05-08T16:23:44+08:00</updated><author><name>Panda Guo</name></author><id>tag:linuxsecurity.cn,2018-05-07:/desktop-shring-zh.html</id><summary type="html">&lt;p&gt;桌面共享允许两个或多个连接到网络的计算机用户在不同位置对同一个文件进行操作。&lt;/p&gt;</summary><content type="html">&lt;!-- Status: draft  --&gt;
+
+&lt;!-- Status: published --&gt;
+
+&lt;h2&gt;概述&lt;/h2&gt;
+&lt;p&gt;桌面共享是指通过图形终端仿真器在计算机桌面上实现远程访问和远程协作的技术。桌面共享允许两个或多个连接到网络的计算机用户在不同位置对同一个文件进行操作。&lt;/p&gt;
+&lt;p&gt;本篇记录在debian启用桌面共享，在Win10的环境下以vncviewer远程访问Debian主机桌面的情景。&lt;/p&gt;
+&lt;p&gt;环境：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-07 &lt;span class="m"&gt;18&lt;/span&gt;:15:36 $ lsb_release -ir&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; uname -a
+Distributor ID: Debian
+Release:    &lt;span class="m"&gt;9&lt;/span&gt;.4
+
+Linux PandaGuo &lt;span class="m"&gt;4&lt;/span&gt;.9.0-6-amd64 &lt;span class="c1"&gt;#1 SMP Debian 4.9.88-1 (2018-04-29) x86_64 GNU/Linux&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以下操作，基于debian9.4、内核4.9进行操作, 需要补充的是，我选用的是mate-desktop, 有些图形界面的操作，和gnome、xface等桌面环境有所不同。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;主要内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian环境下的桌面共享&lt;/li&gt;
+&lt;li&gt;windows访问Debian共享桌面&lt;/li&gt;
+&lt;li&gt;Debian访问windows共享桌面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Debian环境下的桌面共享&lt;/h2&gt;
+&lt;p&gt;先定义两个术语：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Host端： 启用桌面共享，&lt;/li&gt;
+&lt;li&gt;Client端： 访问远程共享桌面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Host端环境搭建&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt; 安装vino(Gnome上的VNC服务端) &lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-07 &lt;span class="m"&gt;10&lt;/span&gt;:19:58 $ sudo apt-get install vino
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 启动服务 &lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;11&lt;/span&gt;:31:46 $ /usr/lib/vino/vino-server --sm-disable
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 采用 dconf-editor 进行服务配置 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;启动 dconf-editor 命令，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;11&lt;/span&gt;:42:48 $ dconf-editor
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;选择 org -&amp;gt; gnome -&amp;gt; desktop -&amp;gt; remote-access:&lt;/p&gt;
+&lt;p&gt;修改require-encryption 为 false, "如果为 true，要求访问桌面的远程用户支持加密。我们无需使用支持加密的客户端，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;alternative-port: 5900;  默认端口为5900&lt;/li&gt;
+&lt;li&gt;authentication-methods: none ; 验证方法，如果为none表示允许任意用户连接， 如果为vnc代表在连接前需要输入口令。&lt;/li&gt;
+&lt;li&gt;require-encryption: false;  取消加密要求， 不要要求Client端支持加密。&lt;/li&gt;
+&lt;li&gt;icon-visibility: always;  总是显示图标， 默认为client表示仅在有人连接时显示图标。&lt;/li&gt;
+&lt;li&gt;view-only： true ;  仅允许远程用户查看共享桌面，不能控制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; 采用 gnome-control-center 配置服务器 &lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;14&lt;/span&gt;:11:13 $ gnome-control-center sharing
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;配置选项如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="共享桌面配置" src="./images/desktop-sharing-setting.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;取消 “允许连接控制屏幕” &lt;/li&gt;
+&lt;li&gt;点选 “需要口令” ， &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Client配置&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt; 安装 vncviewer &lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;14&lt;/span&gt;:23:21 $ sudo apt-get install tigervnc-viewer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 访问共享桌面 &lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;14&lt;/span&gt;:24:54 $ vncviewer &lt;span class="m"&gt;172&lt;/span&gt;.16.28.98
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果在Host勾选了“需要口令”，则需要输入口令。&lt;/p&gt;
+&lt;h2&gt;Windows 访问debian共享桌面 1&lt;/h2&gt;
+&lt;p&gt;在Windows下访问debian共享桌面，比较简单，Host配置参考上节配置，无需做任何修改。在win下安装 realvnc viewer即可。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;下载链接：&lt;a href="https://www.realvnc.com/en/connect/download/viewer/windows/"&gt;Download VNC Viewer for Windows&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择standalone版本（免安装版本）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;双击运行后，输入Host端IP地址连接即可。 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Windows 访问debian 共享桌面2&lt;/h2&gt;
+&lt;p&gt;选择xrdp进行远程桌面共享，  可选配置项更多一些。 比如清晰度等等。&lt;/p&gt;
+&lt;h3&gt;Host (debian) 配置&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt; 安装xrdp 、vino &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;xrdp， 远程桌面协议服务器，&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;15&lt;/span&gt;:33:18 $ sudo apt-get install xrdp vino
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 服务启动 &lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-05-08 &lt;span class="m"&gt;15&lt;/span&gt;:37:26 $ sudo systemctl start xrdp.service
+Panda.Guo@2018-05-08 &lt;span class="m"&gt;15&lt;/span&gt;:36:39 $ /usr/lib/vino/vino-server start
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 服务配置 &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对vino-server 的配置，可参考第一个章节， 关于xrdp配置，可参考&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;man xrdp&lt;/li&gt;
+&lt;li&gt;man xrdp.ini&lt;/li&gt;
+&lt;li&gt;man sesman.ini&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;需要注意的是，修改完成服务，需要重启服务。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;xrdp支持xfce4和mate桌面,不支持gnome和ubuntu桌面&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以下配置选项，有待进一步研究：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;/etc/xrdp/xrdp.ini &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[globals]&lt;/span&gt;
+&lt;span class="na"&gt;bitmap_cache&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;yes       #位图缓存&lt;/span&gt;
+&lt;span class="na"&gt;bitmap_compression&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;yes #位图压缩&lt;/span&gt;
+&lt;span class="na"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;3389              #监听端口&lt;/span&gt;
+&lt;span class="na"&gt;crypt_level&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;low        #加密程度（low为40位，high为128位，medium为双40位）&lt;/span&gt;
+&lt;span class="na"&gt;channel_code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;1         #不知道是什么&lt;/span&gt;
+&lt;span class="na"&gt;max_bpp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;24 XRDP最大连接数&lt;/span&gt;
+&lt;span class="k"&gt;[xrdp1]&lt;/span&gt;
+&lt;span class="na"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sesman-Xvnc XRDP的连接模式&lt;/span&gt;
+&lt;span class="na"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;libvnc.so&lt;/span&gt;
+&lt;span class="na"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;ask&lt;/span&gt;
+&lt;span class="na"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;ask&lt;/span&gt;
+&lt;span class="na"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;127.0.0.1&lt;/span&gt;
+&lt;span class="na"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;-1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;/etc/xrdp/sesman.ini&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Globals]&lt;/span&gt;
+&lt;span class="na"&gt;ListenAddress&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;127.0.0.1      #监听ip地址(默认即可)&lt;/span&gt;
+&lt;span class="na"&gt;ListenPort&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;3350              #监听端口(默认即可)&lt;/span&gt;
+&lt;span class="na"&gt;EnableUserWindowManager&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;1    #1为开启,可让用户自定义自己的启动脚本&lt;/span&gt;
+&lt;span class="na"&gt;UserWindowManager&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;startwm.sh&lt;/span&gt;
+&lt;span class="na"&gt;DefaultWindowManager&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;startwm.sh&lt;/span&gt;
+
+&lt;span class="k"&gt;[Security]&lt;/span&gt;
+&lt;span class="na"&gt;AllowRootLogin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;1              #允许root登陆&lt;/span&gt;
+&lt;span class="na"&gt;MaxLoginRetry&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;4               #最大重试次数&lt;/span&gt;
+&lt;span class="na"&gt;TerminalServerUsers&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;tSUSErs   #允许连接的用户组(如果不存在则默认全部用户允许连接)&lt;/span&gt;
+&lt;span class="na"&gt;TerminalServerAdmins&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;tsadmins #允许连接的超级用户(如果不存在则默认全部用户允许连接)&lt;/span&gt;
+
+&lt;span class="k"&gt;[Sessions]&lt;/span&gt;
+&lt;span class="na"&gt;MaxSessions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;10           #最大会话数&lt;/span&gt;
+
+&lt;span class="na"&gt;KillDisconnected&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0       #是否立即关闭断开的连接(如果为1,则断开连接后会自动注销)&lt;/span&gt;
+&lt;span class="na"&gt;IdleTimeLimit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0          #空闲会话时间限制(0为没有限制)&lt;/span&gt;
+&lt;span class="na"&gt;DisconnectedTimeLimit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0  #断开连接的存活时间(0为没有限制)&lt;/span&gt;
+
+&lt;span class="k"&gt;[Logging]&lt;/span&gt;
+&lt;span class="na"&gt;LogFile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;./sesman.log     #登陆日志文件&lt;/span&gt;
+&lt;span class="na"&gt;LogLevel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;DEBUG           #登陆日志记录等级(级别分别为,core,error,warn,info,debug)&lt;/span&gt;
+&lt;span class="na"&gt;EnableSyslog&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0           #是否开启日志&lt;/span&gt;
+&lt;span class="na"&gt;SyslogLevel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;DEBUG        #系统日志记录等级&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;!-- 参考链接： https://blog.csdn.net/jiandanjinxin/article/details/51897368 --&gt;
+
+&lt;h3&gt;Client （Win10）访问共享桌面&lt;/h3&gt;
+&lt;p&gt;选择win10自带远程桌面， 命令行操作如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cmd&lt;/li&gt;
+&lt;li&gt;mstsc&lt;/li&gt;
+&lt;li&gt;选择vnc-any&lt;/li&gt;
+&lt;li&gt;输入 Host IP地址&lt;/li&gt;
+&lt;li&gt;端口 5900&lt;/li&gt;
+&lt;li&gt;桌面共享设定的口令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本例中， 口令为空即可&lt;/p&gt;
+&lt;hr&gt;</content><category term="Linux"></category><category term="Debian"></category></entry><entry><title>Linux 入侵分析技术</title><link href="http://linuxsecurity.cn/linux-intrusion-detection-zh.html" rel="alternate"></link><published>2018-04-02T15:28:50+08:00</published><updated>2018-05-02T15:28:57+08:00</updated><author><name>Panda Guo</name></author><id>tag:linuxsecurity.cn,2018-04-02:/linux-intrusion-detection-zh.html</id><summary type="html">&lt;p&gt;入侵分析技术一般通过是通过分析主机关键的文件记录、进程信息等来达到分析主机是否被侵入的目的。从安全防护的角度来讲，这是一项事后追踪技术（可追溯性）;从攻击的角度来说， 当Hack成功实施攻击（入侵）后，要进行掩踪灭迹，也就是清除入侵痕迹，当知道入侵分析哪些地方后，那么作为入侵者也就明白需要重点关注哪些入侵痕迹了。&lt;/p&gt;</summary><content type="html">&lt;h2&gt;概述&lt;/h2&gt;
+&lt;p&gt;最好的安全防护当然是“域敌于国门之外”， 通过安全防护技术，来保证当前主机不被非授权人员入侵，但是“道高一尺，魔高一丈”， 再好的防护手段、往往也会有疏漏的地方。在这种情况下，事后（入侵后）的追溯技术就很重要了。好比一个窃贼到我们家溜达一圈，我竟然无法知道是否窃贼来过，细思这是一件非常恐怖的事情。这就意味着，我们的家（主机）不在安全，鬼知道窃贼什么时候再来溜达一圈。&lt;/p&gt;
+&lt;p&gt;入侵分析技术一般通过是通过分析主机关键的文件记录、进程信息等来达到分析主机是否被侵入的目的。从安全防护的角度来讲，这是一项事后追踪技术（可追溯性）;从攻击的角度来说， 当Hacker成功实施攻击（入侵）后，要进行掩踪灭迹，也就是清除入侵痕迹，当知道入侵分析哪些地方后，那么作为入侵者也就明白需要重点关注哪些入侵痕迹了。&lt;/p&gt;
+&lt;p&gt;所谓“未知攻，焉知防”， 同样也可以说“未知防，焉知攻”,  攻防之道，本就是在攻防博弈中相互提高。&lt;/p&gt;
+&lt;h2&gt;环境&lt;/h2&gt;
+&lt;p&gt;本次介绍的入侵分析技术基于环境如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发行版：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-04-18 &lt;span class="m"&gt;10&lt;/span&gt;:42:55 $ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux &lt;span class="m"&gt;9&lt;/span&gt;.4 &lt;span class="o"&gt;(&lt;/span&gt;stretch&lt;span class="o"&gt;)&lt;/span&gt;
+Release:    &lt;span class="m"&gt;9&lt;/span&gt;.4
+Codename:   stretch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;内核&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-04-18 &lt;span class="m"&gt;10&lt;/span&gt;:59:33 $ uname -a
+Linux PandaGuo &lt;span class="m"&gt;4&lt;/span&gt;.9.0-6-amd64 &lt;span class="c1"&gt;#1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Debian 9 入侵分析&lt;/h2&gt;
+&lt;h3&gt;用户帐号&lt;/h3&gt;
+&lt;p&gt;从攻击的角度来讲，Hacker实施攻击后，除了会“掩踪灭迹”之外还会进行“创建后门”，以便将这种攻击的机会持续下去，而创建后门用户帐号，往往是比较可行的途径。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;搜寻具备shell用户的帐号， /etc/passwd&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-04-18 &lt;span class="m"&gt;11&lt;/span&gt;:34:31 $ cat /etc/passwd&lt;span class="p"&gt;|&lt;/span&gt;awk -F: &lt;span class="s1"&gt;&amp;#39;{print $7}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt; sort &lt;span class="p"&gt;|&lt;/span&gt;uniq -c
+  &lt;span class="m"&gt;3&lt;/span&gt; /bin/bash
+  &lt;span class="m"&gt;21&lt;/span&gt; /bin/false
+  &lt;span class="m"&gt;1&lt;/span&gt; /bin/sync
+  &lt;span class="m"&gt;17&lt;/span&gt; /usr/sbin/nologin
+Panda.Guo@2018-04-18 &lt;span class="m"&gt;11&lt;/span&gt;:45:31 $ cat /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;bash&amp;quot;&lt;/span&gt;
+  root:x:0:0:root:/root:/bin/bash
+  panda:x:1000:1000:panda,,,:/home/panda:/bin/bash
+  itcast:x:2001:2001::/home/itcast:/bin/bash
+Panda.Guo@2018-04-18 &lt;span class="m"&gt;11&lt;/span&gt;:45:40 $
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;对其中有shell的用户需要重点关注，本文假设itcast用户为“需重点关照”用户&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;进一步分析用户itcast&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看用户id和组信息：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;id&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt; 
+  &lt;span class="n"&gt;uid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2001&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;gid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2001&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2001&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看用户最近登录信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;lastlog&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt; 
+&lt;span class="n"&gt;Username&lt;/span&gt;         &lt;span class="n"&gt;Port&lt;/span&gt;     &lt;span class="n"&gt;From&lt;/span&gt;             &lt;span class="n"&gt;Latest&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;           &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;   &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;        &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0800&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看用户历史登录信息: last hacker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt; 
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;       &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;        &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;        &lt;span class="mf"&gt;172.16.28.59&lt;/span&gt;     &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;        &lt;span class="mf"&gt;172.16.28.59&lt;/span&gt;     &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;wtmp&lt;/span&gt; &lt;span class="n"&gt;begins&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看用户登录失败信息:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;lastb&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="nl"&gt;ssh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;notty&lt;/span&gt;    &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;        &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="nl"&gt;ssh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;notty&lt;/span&gt;    &lt;span class="mf"&gt;172.16.28.59&lt;/span&gt;     &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;btmp&lt;/span&gt; &lt;span class="n"&gt;begins&lt;/span&gt; &lt;span class="n"&gt;Tue&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt;  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;
+&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看综合信息: finger hacker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;finger&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt;
+&lt;span class="nl"&gt;Login&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt;                   &lt;span class="nl"&gt;Name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; 
+&lt;span class="nl"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;                 &lt;span class="nl"&gt;Shell&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;
+&lt;span class="n"&gt;Last&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CST&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;
+&lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;mail&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;Plan&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果itcast用户登录有异常的IP登录, 则需重点关注&lt;/p&gt;
+&lt;h3&gt;可提权用户（sudo）&lt;/h3&gt;
+&lt;p&gt;Debian系统允许普通用户通过sudo来获取root用户权限， 因此对于已经存在的普通用户，如果其在&lt;code&gt;/etc/sudoers&lt;/code&gt;或者&lt;code&gt;/etc/sudoers.d/&lt;/code&gt;下的文件中， 则表示此普通用户可以通过sudo来完成root操作， 需要特别关注。&lt;/p&gt;
+&lt;p&gt;另可以通过命令&lt;code&gt;groups itcast&lt;/code&gt;（其中itcast指代需要关注的用户username）， 如果该用户所属的组是root或者 sudo组，或者该用户在&lt;code&gt;/etc/sudoers&lt;/code&gt;(包括&lt;code&gt;/etc/sudoer.d/&lt;/code&gt;目录)， 那就需要重点关注了。&lt;/p&gt;
+&lt;h3&gt;开机自启服务&lt;/h3&gt;
+&lt;p&gt;不同的Linux发行版，采用的服务管理器是不同的， Debian 8以上已经采用Systemd作为服务器管理器，其实目前较新的发行版系统上多在采用systemd。本次我们以Systemd为例来分析开机自起的一些程序。&lt;/p&gt;
+&lt;p&gt;对于systemd服务管理器来说，可以通过下述方式查看开机自启的服务:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;unit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;grep&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;accounts&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;daemon&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                    &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="n"&gt;anacron&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                            &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="n"&gt;auditd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                             &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="n"&gt;autovt&lt;/span&gt;&lt;span class="p"&gt;@.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                            &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="err"&gt;。。。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;入侵后，留下一些开机自起的服务，以便后续继续入侵。也是入侵保持持久性的一种手段。&lt;/p&gt;
+&lt;h3&gt;计划（定时）任务&lt;/h3&gt;
+&lt;p&gt;除了开机自启动服务外， Debian还可以通过计划任务来进行持久化运行。&lt;/p&gt;
+&lt;p&gt;检查异常的计划任务相对简单：&lt;/p&gt;
+&lt;p&gt;只需要查看&lt;code&gt;/etc/crontab&lt;/code&gt;以及子目录下&lt;code&gt;/etc/cron.*&lt;/code&gt;的计划任务文件即可.&lt;/p&gt;
+&lt;h3&gt;shell的初始化&lt;/h3&gt;
+&lt;p&gt;不同的Linux发行版的默认shell是不一致的， 一般debian系统默认是dash， 而我自己偏爱bash， 一般系统安装完成后，我会调整我的shell为bash， 本节以bash为例进行描述。&lt;/p&gt;
+&lt;p&gt;对于shell来说，可分为交互shell/非交互shell、 登录shell和非登录shell。本质上就是在shell启动期间，默认执行的配置文件不同而已。 关于这块的详细区别，可参考&lt;code&gt;man bash&lt;/code&gt; 中的INVOCATION章节。或者参考下图：
+&lt;img alt="bash配置文件启动顺序" src="./img/03.00-BashStartupFiles.png"&gt;&lt;/p&gt;
+&lt;p&gt;简单分析如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;非交互/非登录shell： $BASh_ENV（环境变量）&lt;/li&gt;
+&lt;li&gt;非交互/登录shell：&lt;code&gt;/etc/profile&lt;/code&gt; (&lt;code&gt;$HOME/.bash_profile&lt;/code&gt;、&lt;code&gt;$HOME/.bash_login&lt;/code&gt;、&lt;code&gt;$HOME/.profile&lt;/code&gt;按次序先存在的执行)&lt;/li&gt;
+&lt;li&gt;交互/非登录shell： &lt;code&gt;/etc/bash_bashrc&lt;/code&gt;、&lt;code&gt;$HOME/.bashrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;交互/登录shell：&lt;code&gt;/etc/profile&lt;/code&gt; (&lt;code&gt;$HOME/.bash_profile&lt;/code&gt;、&lt;code&gt;$HOME/.bash_login&lt;/code&gt;、&lt;code&gt;$HOME/.profile&lt;/code&gt;按次序先存在的执行)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面描述的比较复杂。简单说，就是bash在启动时，要执行几个脚本文件。 这些文件中如果有命令，在某种情况下（登录非登录、交互非交互）可能会被执行。 入侵分析的重点就是查看这些文件中是否存在可疑命令。&lt;/p&gt;
+&lt;h3&gt;历史命令&lt;/h3&gt;
+&lt;p&gt;一般而言, 入侵者获取shell之后会在上面执行某些命令, 我们可以通过&lt;code&gt;history&lt;/code&gt;命令来查看曾经运行过的命令.或者直接查看&lt;code&gt;~/.bash_history&lt;/code&gt;文件. 高明的入侵者完成入侵后，也会进行某些掩踪灭迹。 因此， 如果发现曾经运行过的命令中有一些可疑命令（莫名奇妙的命令），或者发现history被恶意清除,或者被异常篡改, 这也是我们常用的入侵分析技术。&lt;/p&gt;
+&lt;p&gt;和&lt;code&gt;history&lt;/code&gt;命令相关有几个环境变量，需要我们特别关注，详情可通过man bash 查看&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HISTFILE: 保存历史命令的文件， 默认是 ~/.bash_history&lt;/li&gt;
+&lt;li&gt;HISTFILESIZE: 历史文件中包含的最大行数。&lt;/li&gt;
+&lt;li&gt;HISTSIZE: 命令历史中保存的命令数量行数。&lt;/li&gt;
+&lt;li&gt;HISTTIMEFORMAT: 保存历史命令的时间格式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;系统日志&lt;/h3&gt;
+&lt;p&gt;在debian9上，系统日志统一由rsyslog进程产生， 和rsyslog相关的配置可参考&lt;code&gt;/etc/rsyslog.conf&lt;/code&gt;文件以及&lt;code&gt;/etc/rsyslog.d/&lt;/code&gt;目录。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;登录相关信息&lt;ul&gt;
+&lt;li&gt;查看每个用户最近的登录时间和ip: &lt;code&gt;lastlog&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看每个用户的登录记录: &lt;code&gt;last&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看每个用户的登录尝试(包括失败的)记录: &lt;code&gt;lastb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看当前登录的用户,ip以及正在执行的命令: &lt;code&gt;w&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一些常见的系统日志介绍如下：&lt;ul&gt;
+&lt;li&gt;/var/log/messages: 一般的系统日志&lt;/li&gt;
+&lt;li&gt;/var/log/kern.log: 系统内核日志&lt;/li&gt;
+&lt;li&gt;/var/log/boot.log: 系统启动日志&lt;/li&gt;
+&lt;li&gt;/var/log/auth.log: 登录相关的日志, 比如ssh/sudo成功失败的日志都在这里&lt;/li&gt;
+&lt;li&gt;/var/log/cron.d: cron计划任务的执行日志&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;审计， 审计日志由auditd产生，&lt;code&gt;/etc/audit/auditd.conf&lt;/code&gt;为审计配置文件，&lt;code&gt;/etc/audit/audit.rules&lt;/code&gt; 为审计规则文件。&lt;ul&gt;
+&lt;li&gt;/var/log/audit/* ： 为审计记录，可以进一步分析，也许可以发现一些意想不到的痕迹(如果有的话).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;可疑进程&lt;/h3&gt;
+&lt;p&gt;一般可通过&lt;code&gt;top&lt;/code&gt;命令查看正在运行的程序所占用的资源, 或者用&lt;code&gt;ps aux&lt;/code&gt;列出当前系统所用的进程.
+如果发现可疑进程（没见过、耗资源）, 可以用以下命令进一步：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看该进程启动的完整命令行: &lt;code&gt;ps eho command -p $PID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看该进程启动时候所在的目录: &lt;code&gt;readlink /proc/$PID/cwd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看该进程启动时的完整环境变量: &lt;code&gt;strings -f /proc/$PID/environ | cut -f2 -d ‘ ‘&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;列出该进程所打开的所有文件: &lt;code&gt;lsof -p $PID&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果某个可疑进程正在活动，一般会与外界有网络交互，可通过如下方法进一步分析：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看当前主机的网络连接情况， &lt;code&gt;netstat -apn | grep $PID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;抓包分析，&lt;code&gt;tcpdump&lt;/code&gt; 或者 使用图形化抓包工具&lt;code&gt;wireshark&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看主机防火墙&lt;code&gt;iptables&lt;/code&gt;， DNS（&lt;code&gt;/etc/resolv.conf&lt;/code&gt;和&lt;code&gt;/etc/resolvconf/&lt;/code&gt;）、http代理，或者&lt;code&gt;/etc/hosts&lt;/code&gt;, 都可能会导致我们正常的网络请求被攻击者监听并篡改. 这些小小的修改也许不是很明显,可一旦发现自身网络环境’不太对劲’, 就要提高警惕, 仔细排查了.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;小结&lt;/h2&gt;
+&lt;p&gt;我们研究入侵分析，从“攻”的角度来说，是为了在“实施攻击”后，在“掩踪灭迹”中做的更加彻底，更便于我们攻击的持久性， 从“防”的角度来说， 我了解主机系统被入侵后，知道在哪些地方会留下痕迹，通过收集这些入侵痕迹，结合大数据的分析技术来绘制入侵者的攻击路线图。以便更好的防护。&lt;/p&gt;</content><category term="Security"></category></entry><entry><title>Emacs Markdown mode 基本用法</title><link href="http://linuxsecurity.cn/emacs-markdown-zh.html" rel="alternate"></link><published>2010-12-03T10:20:00+08:00</published><updated>2010-12-05T19:30:00+08:00</updated><author><name>Panda Guo</name></author><id>tag:linuxsecurity.cn,2010-12-03:/emacs-markdown-zh.html</id><summary type="html">&lt;p&gt;Short version for index and feeds&lt;/p&gt;</summary><content type="html">&lt;!-- Status: published --&gt;
+
+&lt;p&gt;这是一篇参考译文， 原文见 &lt;a href="https://jblevins.org/projects/markdown-mode/"&gt;Markdown mode for emacs&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;用法&lt;/h3&gt;
+&lt;p&gt;快捷键按照功能分组，每组具有不同的前缀，例如，插入链接的命令在分组C-c C-a中,其中的C-a是HTML中标签&amp;lt; a &amp;gt;的助记符.其他一些情况与HTML的联系并不直接.例如,处理标签的命令以C-c C-t开始(titling的助记符).下面介绍的每个分组中主要的命令.你可以使用C-c C-h获得所有快捷键的列表.移动和转向命令倾向于使用成对的定界符,如 M-{和M-}以及C-c &amp;lt;和C-c &amp;gt;.大纲导航相关的快捷键与org-mode一致.最后运行Markdown和对打开文件进行维护命令分在以C-c C-c为前缀的组中.&lt;/p&gt;
+&lt;h4&gt;链接和图片&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;C-c C-i markdown-insert-image， 插入图片&lt;/li&gt;
+&lt;li&gt;超链接:C-c C-a&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在这个分组中,C-c C-a l以格式[text] (url)插入一个行内的链接.链接的文档由以下内容决定:1.如果具有活动的区域,以它为链接文本;2.如果光标停留在一个单词内,以这个单词为链接文本.在这两种情况下原始文本被链接替换并且光标移至插入URL的位置.否则,链接内容为空,光标移至插入文本的位置.&lt;/p&gt;
+&lt;p&gt;C-c C-a L以[text] [label]格式插入一个引用链接以及对应参考标签的定义.链接文本以行内链接相似的方式确定,但是与插入空标记时不同,这种情况下链接文本会从minibuf中读取.引用标签也都是从minibuf中读取的,可以依据当前已经定义的引用来补全.为了创建一个隐含的引用链接,按下RET来接收默认值,一个空标签.如果输入的引用标签没有定义,会出现对URL和标题的输入提示,如果输入了一个URL,引用定义将使用markdown-reference-location插入,如果输入了一个标题,新定义将被插入到当前引用定义的最后,并在转换成XHTML时填充标题的属性.&lt;/p&gt;
+&lt;p&gt;C-c C-a u插入一个纯url,以尖括号界定.如果有活动区域,活动区域的文本被视作url.如果光标在一个url内,这个url被使用.否则插入一个尖括号并且光标在尖括号内以输入url.&lt;/p&gt;
+&lt;p&gt;C-c C-a f插入一个脚注,并在下方插入脚注的定义,并将光标移至脚注文本输入处.需要注意的是,脚注是Markdown的一个扩展,并非所有处理器支持.&lt;/p&gt;
+&lt;p&gt;C-c C-a w的行为与行内链接插入命令相似,它以格式[[WikiLink]]插入一个wiki链接.如果有活动区域,使用该区域作为链接文本,如果光标在单词内,使用该单词为链接文本.否则,只是简单插入链接标记.需要注意的是,wiki链接是Markdown的一个扩展,并非所有处理器支持.
+图片 C-c C-i&lt;/p&gt;
+&lt;p&gt;C-c C-i i以格式! [] ()插入一个行内图像标记,使用活动区域或光标所在单词作为提示文本, C-c C-i I的行为与之相似,插入的是引用风格的图片.&lt;/p&gt;
+&lt;p&gt;本地图片与图片链接相关,可以使用C-c C-i C-t在buffer中显示.这是一个切换命令,所以再按一次移除行内图片。
+样式 C-c C-s&lt;/p&gt;
+&lt;p&gt;C-c C-s e插入能使区域或单词变成斜体的标记(&amp;lt; em &amp;gt;/emphasisi标签).如果有活动区域或单词,将其变成斜体.如果光标在已经是斜体的文本上,则移除斜体标记.否则只是增加一个定界符,在其中输入斜体文本.类似的使用C-c C-s s加粗(&amp;lt; strong &amp;gt;标签),使用C-c C-s c标记代码(&amp;lt; code &amp;gt;标签),使用C-c C-s k插入&amp;lt; kbd &amp;gt;标签（用来表示文本是从键盘上键入的）.&lt;/p&gt;
+&lt;p&gt;C-c C-s b使用活动区域创建一个块引用,或者一个空的块引用,它总是对块进行操作,不管是否是活动状态.它可以根据上下文的缩进自动计算合适的缩进,也可以使用区域缩进命令稍后调整.&lt;/p&gt;
+&lt;p&gt;C-c C-s p以类似的方式插入预格式化的代码块,C-c C-s C-p仅对区域有效.
+标题 C-c C-t&lt;/p&gt;
+&lt;p&gt;所有标题命令都会使用活动区域作为标题来插入.否则如果当前行非空,使用该行文本作为标题.如果没有活动区域或者当前行是空行,最终设置文本命令会提示输入标题文本.&lt;/p&gt;
+&lt;p&gt;C-c C-t h根据前面的标题自动选择标题类型和级别来插入标题.C-c C-t H的行为类似,但是优先使用下划线形式的标题.如果自动推导的级别不是你想要的情况下,级别可以快速提升和下降,下文会介绍.此外在命令前加一个C-u可以提成一个级别,加两个可以下降一个级别.&lt;/p&gt;
+&lt;p&gt;为了插入特定级别和类型的标题,C-c C-t 1-6插入atx类型的标题,C-c C-t !或者C-c C-t @分别插入一级和二级setext类型的标题.&lt;/p&gt;
+&lt;p&gt;如果光标位于单词内,以上命令会覆盖当前的标记并更新标题的级别.可以通过C-c C-k移除标题,通过C-y将标题拽回buffer.
+水平线 C-c -&lt;/p&gt;
+&lt;p&gt;C-c -插入一个水平线.默认情况下,使用markdown-hr-strings列表里面第一个字符串构成水平线.带有C-u前缀时使用列表中最后一个字符.带有数字N前缀时,使用位置N上的字符(从1开始算起).(默认* -两种字符以及3种长度,共6种).
+编译和维护命令 C-c C-c&lt;/p&gt;
+&lt;p&gt;编译 C-c C-c m命令会在当前buffer中运行markdown,并在另一个buffer中输出显示.预览 C-c C-c p命令在当期buffer中运行markdown,将输出保存到临时文件,并在浏览器中预览.导出C-c C-c e命令在当期buffer中运行markdown,将输出保存到basename.html文件,这里basename与md文件去掉后缀的名字相同.导出并预览 C-c C-c v导出到文件并在浏览器中预览.打开 C-c C-c o直接使用markdown-open-command打开markdown源文件.实时导出 C-c C-c l打开markdown-live-preview-mode模式以查看由markdown源文件导出的文件.对所有的导出命令,输出文件默认覆盖没有提醒.markdown-live-preview-function可以配置成打开游览器而不是eww.你可以通过配置markdown-split-window-direction强制将预览窗口显示在底部或右侧.&lt;/p&gt;
+&lt;p&gt;小结:
+C-c C-c m: markdown-command &amp;gt; markdown-output buffer.
+C-c C-c p: markdown-command &amp;gt; temporary file &amp;gt; browser.
+C-c C-c e: markdown-command &amp;gt; basename.html.
+C-c C-c v: markdown-command &amp;gt; basename.html &amp;gt; browser.
+C-c C-c w: markdown-command &amp;gt; kill ring.
+C-c C-c o: markdown-open-command.
+C-c C-c l: markdown-live-preview-mode &amp;gt; eww buffer.&lt;/p&gt;
+&lt;p&gt;C-c C-c c会检查未定义的引用.如果存在,会打开一个小buffer将未定义的引用以及出现的行号列出来.在Emacs 22以后的版本中,从这些列表中选择一个引用并按下RET将会在buffer的尾部插入一个空的引用定义.类似地,选择一个行号将跳转的相应的行.&lt;/p&gt;
+&lt;p&gt;C-c C-c n为buffer中任何不在有序的有序的列重新编号.&lt;/p&gt;
+&lt;p&gt;C-c C-c ]补全buffer中所有标题以及统一所有水平线.
+跟踪链接 C-c C-o&lt;/p&gt;
+&lt;p&gt;当光标在一个行内或引用链接下时,按下C-c C-o在浏览器中打开URL.当光标在一个wiki链接下时,在另一个buffer中显示URL内容(加C-u前缀显示在新窗口,无前缀显示在当前窗口).使用M-p和M-n快速跳转到前一个或者下一个任何类型的链接(注意:需要配置markdown-open-command).
+跳转 C-c C-l&lt;/p&gt;
+&lt;p&gt;使用C-c C-l从一个对象跳转到同级对应的下一个对象.可以在引用链接和定义之间,在脚注标记和脚注文件之间跳转.如果多于一个链接使用相同的引用名称,会弹出一个包含各个链接按钮的新缓冲区,可点击的按钮跳转到单个链接.也可以使用TAB或者S-TAB来在当前窗口中的按钮之间跳转.
+升级和降级 C-c C–与C-c C-=&lt;/p&gt;
+&lt;p&gt;标题,水平线,列表项可以被升级或者降级,还包括加粗和斜体的文本.对于标题,升级指的是标题的级别数字减小（h2-&amp;gt;h1,实际级别效果是升级）,而降级则是标题的级别数字增大.对于水平线,升级和降级指的是在markdown-hr-strings的水平线字符列表中向前或者向后移动.对于加粗和倾斜文本,升级和降级指的是改变文本的下划线和星号标签.也可以在光标所在位置按M-LEFT来对元素进行升级操作.&lt;/p&gt;
+&lt;p&gt;要记牢这个命令,需要注意-号意味着标题级别数字减小（升级）,=号对应着标题的级别数字增大（降级）,与此类似,左右箭头符号风别暗指atx风格的标题的升级和降级.
+自动补全 C-c C-]&lt;/p&gt;
+&lt;p&gt;补全标签一般来说是指,将setext风格标题的下划线补全到和标题文本相同的长度,或者atx风格标题的收尾的#号数量相同,且没有多余的空格.总之,C-c C-]补全光标当期位置的不完整的标签.
+编辑列表 M-RET, M-UP, M-DOWN, M-LEFT, M-RIGHT&lt;/p&gt;
+&lt;p&gt;新的列表项可以使用M-RET或者 C-c C-j插入.这个命令检测附近的项目来决定合适的标签以及缩进级别.如果光标前后没有列表,那么开始一个新列表.在命令前加一个C-u前缀可以减小一个缩进级别,两个前缀可以增加一个缩进级别.&lt;/p&gt;
+&lt;p&gt;已经存在的列表项目可以使用M-UP或者M-DOWN上下移动,使用M-RIGHT或者M-LEFT减小或增大缩进长度
+编辑子树 M-S-UP, M-S-DOWN, M-S-LEFT和M-S-RIGHT&lt;/p&gt;
+&lt;p&gt;atx风格的标题可以使用M-S-LEFT和 M-S-RIGHT来升级和降级整个标题子树,与列表项目的升级和降级绑定关系相同.类似的子树可以使用M-S-UP和 M-S-DOWN上下移动.&lt;/p&gt;
+&lt;p&gt;注意下面的升级和降级的边界行为.任何8级标题不能降级并且任何1级标题升级后将失去标题标签.
+转移区域 C-c &amp;lt; 和C-c &amp;gt;&lt;/p&gt;
+&lt;p&gt;区域中的文本可以作为一个组使用C-c &amp;gt;增加缩进到下一个缩进点,C-c &amp;lt;较少缩进到前一个点.这些键的绑定和python模式中的一样.
+删除元素 C-c C-k&lt;/p&gt;
+&lt;p&gt;按下C-c C-k以删除当前光标位置的东西并且增加重要的没有标签的文本到kill ring.可以被删除的东西包括:行内代码,标题,水平下,链接（链接文本加入到kill ring）,图像（提示文本加入到kill ring）,angle URI,邮件地址,加粗,倾斜,引用定义,脚注标签和文本（标签和文本都加入到kill ring）,列表项.
+大纲导航 C-c C-n, C-c C-p, C-c C-f, C-c C-b和C-c C-u&lt;/p&gt;
+&lt;p&gt;在标题之间导航可以使用大纲模式.使用C-c C-n和 C-c C-p在可见的前后标题间移动.类似的C-c C-f和 C-c C-b在同级标题间前后移动.最后C-c C-u可以向上移动到一个更低级别的可见标题上.
+段落和块间的移动 M-{和M-}&lt;/p&gt;
+&lt;p&gt;这些键通常会绑定到forward-paragraph和backward-paragraph,但是这些内置的emacs函数仅仅基于简单正则表达式并且会在markdown模式下失效.markdown模式下的块包括代码块,块引用,列表项目,标题,水平线或者以空格分割的纯文本段落.因此,这些键实际绑定到markdown-forward-block和markdown-backward-block.可以使用M-h和 C-x n b（实测无该命令）来扩大或者缩小选定的区域.
+节的移动 C-M-a, C-M-e和C-M-h&lt;/p&gt;
+&lt;p&gt;一般emacs命令可以用来在defuns间移动.在markdown模式下defuns是一个节.一般C-M-a将移动到当前节的开始或者上一节,C-M-e将会移到当前节的结束或者下一节,C-M-h将选取整个节的区域.
+注意事项&lt;/p&gt;
+&lt;p&gt;注意,上面命令的行为结果取决于短标记模式是否开启（在短标记模式下实现了标准的选择-高亮行为）.如果短标记模式开启且区域是活动状态,命令将应用在选择区域的文本上.对于那些不使用短标记模式的用户,emacs 22可以使用C-SPC C-SPC临时开启.当没有开启时,许多命令的行为只对当期所在的单词或行生效.&lt;/p&gt;
+&lt;p&gt;适当情况下,命令针对非短标记模式下的区域的行为与标准模式下有相同的快捷键绑定关系,但是通常字母是大写的.举例来说,markdown-insert-blockquote被绑定到C-c C-s b并对短标记模式下的区域有效,另一情况下,markdown-blockquote-region被绑定到C-c C-s B并且总是对区域生效.&lt;/p&gt;
+&lt;p&gt;注意,特定区域的函数在大多数情况下都非常有用,尽管并非显而易见.举例来说,从kill ring中拉取文本会将标记放在文本的最前面,并将光标移动到最后面.因此,非活动区域包含了拉取的文本.所以C-c C-s C-b后的C-y会拉取文本并转换为块引用.&lt;/p&gt;
+&lt;p&gt;markdown模式试图灵活处理缩进.当你重复按下TAB,光标会在多个可能的缩进级别间循环变化,这些位置与在行尾或TAB键后按下RET时你脑中想要的结果相符.举例来说,你可能想要一个新的列表项,继续一个有缩进的列表项,缩进为重叠的前级块等等.当退格键在没有空白部分的行的开始位置按下时,反缩进也是相同的处理.&lt;/p&gt;
+&lt;p&gt;markdown模式支持outline-minor-mode和org-mode-style下atx或者#号风格标题的循环可见.有两种循环可见：按下S-TAB在目录视图,大纲视图和全文档视图间全局切换；按下TAB时,当前位置的标题会循环在子树不同可见级别间循环：全部折叠,子标题内容可见,全部可见.注意混合使用#号标题和下划线标题会产生无法预期的结果.&lt;/p&gt;</content><category term="emacs"></category><category term="markdown"></category></entry></feed>

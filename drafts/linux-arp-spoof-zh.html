@@ -2,10 +2,10 @@
 <html lang="zh_cn">
 <head>
 
-        <title>My super title</title>
+        <title>ARP攻击及防御措施</title>
         <meta charset="utf-8" />
         <link href="http://linuxsecurity.cn/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Panda.Guo 的竹林 Full Atom Feed" />
-        <link href="http://linuxsecurity.cn/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Panda.Guo 的竹林 Categories Atom Feed" />
+        <link href="http://linuxsecurity.cn/feeds/security.atom.xml" type="application/atom+xml" rel="alternate" title="Panda.Guo 的竹林 Categories Atom Feed" />
 
 
         <!-- Mobile viewport optimized: j.mp/bplateviewport -->
@@ -41,7 +41,7 @@
 
                   <li><a href="http://linuxsecurity.cn/category/linux.html">Linux</a></li>
                   <li><a href="http://linuxsecurity.cn/category/misc.html">misc</a></li>
-                  <li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li>
+                  <li class="active"><a href="http://linuxsecurity.cn/category/security.html">Security</a></li>
 
                 <li><a href="/pages/about-zh.html">About</a></li>
 
@@ -56,24 +56,61 @@
 
             <header>
               <h2 class="entry-title">
-                <a href="http://linuxsecurity.cn/drafts/template.html" rel="bookmark"
-                   title="Permalink to My super title">My super title</a></h2>
+                <a href="http://linuxsecurity.cn/drafts/linux-arp-spoof-zh.html" rel="bookmark"
+                   title="Permalink to ARP攻击及防御措施">ARP攻击及防御措施</a></h2>
            
             </header>
             <footer class="post-info">
-              <abbr class="published" title="2010-12-03T10:20:00+08:00">
-                2010-12-03   10:20
+              <abbr class="published" title="2018-07-05T10:56:42+08:00">
+                2018-07-05   10:56
               </abbr>
               <address class="vcard author">By 
-                <a class="url fn" href="http://linuxsecurity.cn/author/pandguo.html"> Pand.Guo</a>
+                <a class="url fn" href="http://linuxsecurity.cn/author/panda-guo.html"> Panda Guo</a>
               </address>
             </footer><!-- /.post-info -->
             <div class="entry-content">
-              <!-- Status: published -->
-
-<p>Lang: zh
-Author: Panda Guo
-Summary: Short version for index and feeds</p>
+              <h2>ARP 工作原理</h2>
+<p>ARP的全称是：Address Resolution Protocol，也就是地址解析协议。顾名思义，其主要作用就是“地址解析”，即通过目标设备的IP地址，查询目标地址的MAC地址。</p>
+<p>简单的说ARP（Address Resolution Protocol 地址解析协议）是在局域网环境中根据IP地址获取MAC地址的一个TCP/IP协议。</p>
+<p>在局域网中，如果要在两台主机之间进行通信，就必须要知道目标主机的IP地址，但是起到传输数据的物理设备网卡并不能直接识别IP地址，只能识别其硬件地址MAC地址，MAC地址是一个全球唯一的序列号并由12个16进制数构成。主机之间的通信，一般都是网卡之间的通信，而网卡之间的通信都是根据对方的MAC地址来进行工作的，而ARP协议就是一个将数据包中的IP地址转换为MAC地址的网络协议。</p>
+<ul>
+<li>正常情况下一台主机是如何通过路由器上网的</li>
+</ul>
+<p><img alt="" src=""></p>
+<ul>
+<li>
+<p>主机 A 上执行 ping 8.8.8.8</p>
+</li>
+<li>
+<p>主机 A 准备根据默认路由将数据包发送给 192.168.0.1, 但是最开始的时候主机 A 不知道 192.168.0.1 的 Mac 地址, 所以主机 A 广播一条 ARP Request, 询问 192.168.0.1 的 Mac 地址是什么</p>
+</li>
+<li>
+<p>路由器收到该 ARP 请求, 发现自己是 192.168.0.1 于是向主机 A 回复一条 ARP Reply, 告诉主机 A 192.168.0.1 的 Mac 地址是 xxxGW.</p>
+</li>
+<li>
+<p>主机 A 收到该 ARP Reply, 并使用该 Reply 中的 MAC 地址封一个 ICMP Request 包, 然后将包发出去</p>
+</li>
+<li>
+<p>路由器收到该 ICMP 包, 发现目标 IP 是公网 IP, 便将该包放送到公网, 公网返回 ICMP Reply 给路由器</p>
+</li>
+<li>
+<p>路由器准备将 ICMP Reply 发送给 192.168.0.100, 但是同第2步, 路由器最开始的时候也不知道 192.168.0.100 的 Mac 地址是多少, 所以路由器会广播一条 ARP Request, 询问 192.168.0.100 的 Mac 地址是什么</p>
+</li>
+<li>
+<p>主机 A 收到 ARP Request, 发现自己是 192.168.0.100, 于是向路由器回复 ARP Reply, 告诉路由器 192.168.0.100 的 Mac 地址是 xxxA.</p>
+</li>
+<li>
+<p>路由器收到 ARP Reply, 并使用该 Reply 中的 MAC 地址将第5步收到 ICMP Reply 包重新封包, 并发送出去</p>
+</li>
+<li>
+<p>主机 A 收到 ICMP Reply</p>
+</li>
+</ul>
+<h2>ARP攻击</h2>
+<h2>ARP攻击防范方法</h2>
+<h3>静态绑定MAC</h3>
+<div class="highlight"><pre><span></span>adfasd
+</pre></div>
             </div><!-- /.entry-content -->
 
 
@@ -103,7 +140,7 @@ Summary: Short version for index and feeds</p>
 <!--        -->
 <!--         <li><a href="http://linuxsecurity.cn/category/misc.html">misc</a></li> -->
 <!--        -->
-<!--         <li><a href="http://linuxsecurity.cn/category/security.html">Security</a></li> -->
+<!--         <li class="active"><a href="http://linuxsecurity.cn/category/security.html">Security</a></li> -->
 <!--        -->
 <!--      -->
 <!--    -->

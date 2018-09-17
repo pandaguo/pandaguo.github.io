@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Panda.Guo 的竹林 - Security</title><link href="http://linuxsecurity.cn/" rel="alternate"></link><link href="http://linuxsecurity.cn/feeds/security.atom.xml" rel="self"></link><id>http://linuxsecurity.cn/</id><updated>2018-05-02T15:28:57+08:00</updated><entry><title>Linux 入侵分析技术</title><link href="http://linuxsecurity.cn/linux-intrusion-detection-zh.html" rel="alternate"></link><published>2018-04-02T15:28:50+08:00</published><updated>2018-05-02T15:28:57+08:00</updated><author><name>Panda Guo</name></author><id>tag:linuxsecurity.cn,2018-04-02:/linux-intrusion-detection-zh.html</id><summary type="html">&lt;p&gt;入侵分析技术一般通过是通过分析主机关键的文件记录、进程信息等来达到分析主机是否被侵入的目的。从安全防护的角度来讲，这是一项事后追踪技术（可追溯性）;从攻击的角度来说， 当Hack成功实施攻击（入侵）后，要进行掩踪灭迹，也就是清除入侵痕迹，当知道入侵分析哪些地方后，那么作为入侵者也就明白需要重点关注哪些入侵痕迹了。&lt;/p&gt;</summary><content type="html">&lt;h2&gt;概述&lt;/h2&gt;
+&lt;p&gt;最好的安全防护当然是“域敌于国门之外”， 通过安全防护技术，来保证当前主机不被非授权人员入侵，但是“道高一尺，魔高一丈”， 再好的防护手段、往往也会有疏漏的地方。在这种情况下，事后（入侵后）的追溯技术就很重要了。好比一个窃贼到我们家溜达一圈，我竟然无法知道是否窃贼来过，细思这是一件非常恐怖的事情。这就意味着，我们的家（主机）不在安全，鬼知道窃贼什么时候再来溜达一圈。&lt;/p&gt;
+&lt;p&gt;入侵分析技术一般通过是通过分析主机关键的文件记录、进程信息等来达到分析主机是否被侵入的目的。从安全防护的角度来讲，这是一项事后追踪技术（可追溯性）;从攻击的角度来说， 当Hacker成功实施攻击（入侵）后，要进行掩踪灭迹，也就是清除入侵痕迹，当知道入侵分析哪些地方后，那么作为入侵者也就明白需要重点关注哪些入侵痕迹了。&lt;/p&gt;
+&lt;p&gt;所谓“未知攻，焉知防”， 同样也可以说“未知防，焉知攻”,  攻防之道，本就是在攻防博弈中相互提高。&lt;/p&gt;
+&lt;h2&gt;环境&lt;/h2&gt;
+&lt;p&gt;本次介绍的入侵分析技术基于环境如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发行版：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-04-18 &lt;span class="m"&gt;10&lt;/span&gt;:42:55 $ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux &lt;span class="m"&gt;9&lt;/span&gt;.4 &lt;span class="o"&gt;(&lt;/span&gt;stretch&lt;span class="o"&gt;)&lt;/span&gt;
+Release:    &lt;span class="m"&gt;9&lt;/span&gt;.4
+Codename:   stretch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;内核&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-04-18 &lt;span class="m"&gt;10&lt;/span&gt;:59:33 $ uname -a
+Linux PandaGuo &lt;span class="m"&gt;4&lt;/span&gt;.9.0-6-amd64 &lt;span class="c1"&gt;#1 SMP Debian 4.9.82-1+deb9u3 (2018-03-02) x86_64 GNU/Linux&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Debian 9 入侵分析&lt;/h2&gt;
+&lt;h3&gt;用户帐号&lt;/h3&gt;
+&lt;p&gt;从攻击的角度来讲，Hacker实施攻击后，除了会“掩踪灭迹”之外还会进行“创建后门”，以便将这种攻击的机会持续下去，而创建后门用户帐号，往往是比较可行的途径。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;搜寻具备shell用户的帐号， /etc/passwd&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Panda.Guo@2018-04-18 &lt;span class="m"&gt;11&lt;/span&gt;:34:31 $ cat /etc/passwd&lt;span class="p"&gt;|&lt;/span&gt;awk -F: &lt;span class="s1"&gt;&amp;#39;{print $7}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt; sort &lt;span class="p"&gt;|&lt;/span&gt;uniq -c
+  &lt;span class="m"&gt;3&lt;/span&gt; /bin/bash
+  &lt;span class="m"&gt;21&lt;/span&gt; /bin/false
+  &lt;span class="m"&gt;1&lt;/span&gt; /bin/sync
+  &lt;span class="m"&gt;17&lt;/span&gt; /usr/sbin/nologin
+Panda.Guo@2018-04-18 &lt;span class="m"&gt;11&lt;/span&gt;:45:31 $ cat /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;bash&amp;quot;&lt;/span&gt;
+  root:x:0:0:root:/root:/bin/bash
+  panda:x:1000:1000:panda,,,:/home/panda:/bin/bash
+  itcast:x:2001:2001::/home/itcast:/bin/bash
+Panda.Guo@2018-04-18 &lt;span class="m"&gt;11&lt;/span&gt;:45:40 $
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;对其中有shell的用户需要重点关注，本文假设itcast用户为“需重点关照”用户&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;进一步分析用户itcast&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看用户id和组信息：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="kt"&gt;id&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt; 
+  &lt;span class="n"&gt;uid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2001&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;gid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2001&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2001&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看用户最近登录信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;lastlog&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt; 
+&lt;span class="n"&gt;Username&lt;/span&gt;         &lt;span class="n"&gt;Port&lt;/span&gt;     &lt;span class="n"&gt;From&lt;/span&gt;             &lt;span class="n"&gt;Latest&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;           &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;   &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;        &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;0800&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看用户历史登录信息: last hacker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt; 
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;       &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;        &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;        &lt;span class="mf"&gt;172.16.28.59&lt;/span&gt;     &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;        &lt;span class="mf"&gt;172.16.28.59&lt;/span&gt;     &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;wtmp&lt;/span&gt; &lt;span class="n"&gt;begins&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看用户登录失败信息:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;lastb&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="nl"&gt;ssh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;notty&lt;/span&gt;    &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;        &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;itcast&lt;/span&gt;   &lt;span class="nl"&gt;ssh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;notty&lt;/span&gt;    &lt;span class="mf"&gt;172.16.28.59&lt;/span&gt;     &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;btmp&lt;/span&gt; &lt;span class="n"&gt;begins&lt;/span&gt; &lt;span class="n"&gt;Tue&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt;  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="mi"&gt;09&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;2018&lt;/span&gt;
+&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;查看综合信息: finger hacker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;53&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;finger&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt;
+&lt;span class="nl"&gt;Login&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;itcast&lt;/span&gt;                   &lt;span class="nl"&gt;Name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; 
+&lt;span class="nl"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;itcast&lt;/span&gt;                 &lt;span class="nl"&gt;Shell&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;
+&lt;span class="n"&gt;Last&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;Thu&lt;/span&gt; &lt;span class="n"&gt;Apr&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CST&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;
+&lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;mail&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;Plan&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果itcast用户登录有异常的IP登录, 则需重点关注&lt;/p&gt;
+&lt;h3&gt;可提权用户（sudo）&lt;/h3&gt;
+&lt;p&gt;Debian系统允许普通用户通过sudo来获取root用户权限， 因此对于已经存在的普通用户，如果其在&lt;code&gt;/etc/sudoers&lt;/code&gt;或者&lt;code&gt;/etc/sudoers.d/&lt;/code&gt;下的文件中， 则表示此普通用户可以通过sudo来完成root操作， 需要特别关注。&lt;/p&gt;
+&lt;p&gt;另可以通过命令&lt;code&gt;groups itcast&lt;/code&gt;（其中itcast指代需要关注的用户username）， 如果该用户所属的组是root或者 sudo组，或者该用户在&lt;code&gt;/etc/sudoers&lt;/code&gt;(包括&lt;code&gt;/etc/sudoer.d/&lt;/code&gt;目录)， 那就需要重点关注了。&lt;/p&gt;
+&lt;h3&gt;开机自启服务&lt;/h3&gt;
+&lt;p&gt;不同的Linux发行版，采用的服务管理器是不同的， Debian 8以上已经采用Systemd作为服务器管理器，其实目前较新的发行版系统上多在采用systemd。本次我们以Systemd为例来分析开机自起的一些程序。&lt;/p&gt;
+&lt;p&gt;对于systemd服务管理器来说，可以通过下述方式查看开机自启的服务:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Panda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Guo&lt;/span&gt;&lt;span class="mi"&gt;@2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;unit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;grep&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;accounts&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;daemon&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                    &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="n"&gt;anacron&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                            &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="n"&gt;auditd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                             &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="n"&gt;autovt&lt;/span&gt;&lt;span class="p"&gt;@.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;                            &lt;span class="n"&gt;enabled&lt;/span&gt;
+  &lt;span class="err"&gt;。。。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;入侵后，留下一些开机自起的服务，以便后续继续入侵。也是入侵保持持久性的一种手段。&lt;/p&gt;
+&lt;h3&gt;计划（定时）任务&lt;/h3&gt;
+&lt;p&gt;除了开机自启动服务外， Debian还可以通过计划任务来进行持久化运行。&lt;/p&gt;
+&lt;p&gt;检查异常的计划任务相对简单：&lt;/p&gt;
+&lt;p&gt;只需要查看&lt;code&gt;/etc/crontab&lt;/code&gt;以及子目录下&lt;code&gt;/etc/cron.*&lt;/code&gt;的计划任务文件即可.&lt;/p&gt;
+&lt;h3&gt;shell的初始化&lt;/h3&gt;
+&lt;p&gt;不同的Linux发行版的默认shell是不一致的， 一般debian系统默认是dash， 而我自己偏爱bash， 一般系统安装完成后，我会调整我的shell为bash， 本节以bash为例进行描述。&lt;/p&gt;
+&lt;p&gt;对于shell来说，可分为交互shell/非交互shell、 登录shell和非登录shell。本质上就是在shell启动期间，默认执行的配置文件不同而已。 关于这块的详细区别，可参考&lt;code&gt;man bash&lt;/code&gt; 中的INVOCATION章节。或者参考下图：
+&lt;img alt="bash配置文件启动顺序" src="./img/03.00-BashStartupFiles.png"&gt;&lt;/p&gt;
+&lt;p&gt;简单分析如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;非交互/非登录shell： $BASh_ENV（环境变量）&lt;/li&gt;
+&lt;li&gt;非交互/登录shell：&lt;code&gt;/etc/profile&lt;/code&gt; (&lt;code&gt;$HOME/.bash_profile&lt;/code&gt;、&lt;code&gt;$HOME/.bash_login&lt;/code&gt;、&lt;code&gt;$HOME/.profile&lt;/code&gt;按次序先存在的执行)&lt;/li&gt;
+&lt;li&gt;交互/非登录shell： &lt;code&gt;/etc/bash_bashrc&lt;/code&gt;、&lt;code&gt;$HOME/.bashrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;交互/登录shell：&lt;code&gt;/etc/profile&lt;/code&gt; (&lt;code&gt;$HOME/.bash_profile&lt;/code&gt;、&lt;code&gt;$HOME/.bash_login&lt;/code&gt;、&lt;code&gt;$HOME/.profile&lt;/code&gt;按次序先存在的执行)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面描述的比较复杂。简单说，就是bash在启动时，要执行几个脚本文件。 这些文件中如果有命令，在某种情况下（登录非登录、交互非交互）可能会被执行。 入侵分析的重点就是查看这些文件中是否存在可疑命令。&lt;/p&gt;
+&lt;h3&gt;历史命令&lt;/h3&gt;
+&lt;p&gt;一般而言, 入侵者获取shell之后会在上面执行某些命令, 我们可以通过&lt;code&gt;history&lt;/code&gt;命令来查看曾经运行过的命令.或者直接查看&lt;code&gt;~/.bash_history&lt;/code&gt;文件. 高明的入侵者完成入侵后，也会进行某些掩踪灭迹。 因此， 如果发现曾经运行过的命令中有一些可疑命令（莫名奇妙的命令），或者发现history被恶意清除,或者被异常篡改, 这也是我们常用的入侵分析技术。&lt;/p&gt;
+&lt;p&gt;和&lt;code&gt;history&lt;/code&gt;命令相关有几个环境变量，需要我们特别关注，详情可通过man bash 查看&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HISTFILE: 保存历史命令的文件， 默认是 ~/.bash_history&lt;/li&gt;
+&lt;li&gt;HISTFILESIZE: 历史文件中包含的最大行数。&lt;/li&gt;
+&lt;li&gt;HISTSIZE: 命令历史中保存的命令数量行数。&lt;/li&gt;
+&lt;li&gt;HISTTIMEFORMAT: 保存历史命令的时间格式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;系统日志&lt;/h3&gt;
+&lt;p&gt;在debian9上，系统日志统一由rsyslog进程产生， 和rsyslog相关的配置可参考&lt;code&gt;/etc/rsyslog.conf&lt;/code&gt;文件以及&lt;code&gt;/etc/rsyslog.d/&lt;/code&gt;目录。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;登录相关信息&lt;ul&gt;
+&lt;li&gt;查看每个用户最近的登录时间和ip: &lt;code&gt;lastlog&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看每个用户的登录记录: &lt;code&gt;last&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看每个用户的登录尝试(包括失败的)记录: &lt;code&gt;lastb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看当前登录的用户,ip以及正在执行的命令: &lt;code&gt;w&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一些常见的系统日志介绍如下：&lt;ul&gt;
+&lt;li&gt;/var/log/messages: 一般的系统日志&lt;/li&gt;
+&lt;li&gt;/var/log/kern.log: 系统内核日志&lt;/li&gt;
+&lt;li&gt;/var/log/boot.log: 系统启动日志&lt;/li&gt;
+&lt;li&gt;/var/log/auth.log: 登录相关的日志, 比如ssh/sudo成功失败的日志都在这里&lt;/li&gt;
+&lt;li&gt;/var/log/cron.d: cron计划任务的执行日志&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;审计， 审计日志由auditd产生，&lt;code&gt;/etc/audit/auditd.conf&lt;/code&gt;为审计配置文件，&lt;code&gt;/etc/audit/audit.rules&lt;/code&gt; 为审计规则文件。&lt;ul&gt;
+&lt;li&gt;/var/log/audit/* ： 为审计记录，可以进一步分析，也许可以发现一些意想不到的痕迹(如果有的话).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;可疑进程&lt;/h3&gt;
+&lt;p&gt;一般可通过&lt;code&gt;top&lt;/code&gt;命令查看正在运行的程序所占用的资源, 或者用&lt;code&gt;ps aux&lt;/code&gt;列出当前系统所用的进程.
+如果发现可疑进程（没见过、耗资源）, 可以用以下命令进一步：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看该进程启动的完整命令行: &lt;code&gt;ps eho command -p $PID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看该进程启动时候所在的目录: &lt;code&gt;readlink /proc/$PID/cwd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看该进程启动时的完整环境变量: &lt;code&gt;strings -f /proc/$PID/environ | cut -f2 -d ‘ ‘&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;列出该进程所打开的所有文件: &lt;code&gt;lsof -p $PID&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果某个可疑进程正在活动，一般会与外界有网络交互，可通过如下方法进一步分析：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看当前主机的网络连接情况， &lt;code&gt;netstat -apn | grep $PID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;抓包分析，&lt;code&gt;tcpdump&lt;/code&gt; 或者 使用图形化抓包工具&lt;code&gt;wireshark&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看主机防火墙&lt;code&gt;iptables&lt;/code&gt;， DNS（&lt;code&gt;/etc/resolv.conf&lt;/code&gt;和&lt;code&gt;/etc/resolvconf/&lt;/code&gt;）、http代理，或者&lt;code&gt;/etc/hosts&lt;/code&gt;, 都可能会导致我们正常的网络请求被攻击者监听并篡改. 这些小小的修改也许不是很明显,可一旦发现自身网络环境’不太对劲’, 就要提高警惕, 仔细排查了.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;小结&lt;/h2&gt;
+&lt;p&gt;我们研究入侵分析，从“攻”的角度来说，是为了在“实施攻击”后，在“掩踪灭迹”中做的更加彻底，更便于我们攻击的持久性， 从“防”的角度来说， 我了解主机系统被入侵后，知道在哪些地方会留下痕迹，通过收集这些入侵痕迹，结合大数据的分析技术来绘制入侵者的攻击路线图。以便更好的防护。&lt;/p&gt;</content><category term="Security"></category></entry></feed>
